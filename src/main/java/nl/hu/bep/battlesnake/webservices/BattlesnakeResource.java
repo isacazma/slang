@@ -5,12 +5,13 @@ import nl.hu.bep.battlesnake.model.GameInformation;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.Console;
 
-class MoveResonse{
+class MoveResponse{
     public String move;
     public  String shout;
 
-    public  MoveResonse(String move , String shout){
+    public  MoveResponse(String move , String shout){
         this.move = move;
         this.shout = shout;
     }
@@ -41,8 +42,9 @@ public class BattlesnakeResource {
     @POST
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response moveSnake(){
-        MoveResonse move = new MoveResonse("up","going Up");
+    public Response moveSnake(String r){
+        System.out.println(r);
+        MoveResponse move = new MoveResponse("up","going Up");
         return  Response.ok(move).build();
     }
 

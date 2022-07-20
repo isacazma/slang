@@ -1,13 +1,32 @@
 package nl.hu.bep.battlesnake.model;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
 
-        private int height;
-        private int width;
-        private List<Board> food = new ArrayList<>();
+    private int height;
+    private int width;
+    private List<Point> food = new ArrayList<>();
+    private List<Board>  hazards= new ArrayList<>();
+    private List<Slang> snakes = new ArrayList<>();
+
+    public Board() {
+        this.height = height;
+        this.width = width;
+        this.food = food;
+        this.hazards = hazards;
+        this.snakes = snakes;
+    }
+
+    public Board(int height, int width, List<Point> food, List<Board> hazards, List<Slang> snakes) {
+        this.height = height;
+        this.width = width;
+        this.food = food;
+        this.hazards = hazards;
+        this.snakes = snakes;
+    }
 
     public int getHeight() {
         return height;
@@ -25,11 +44,11 @@ public class Board {
         this.width = width;
     }
 
-    public List<Board> getFood() {
+    public List<Point> getFood() {
         return food;
     }
 
-    public void setFood(List<Board> food) {
+    public void setFood(List<Point> food) {
         this.food = food;
     }
 
@@ -49,7 +68,5 @@ public class Board {
         this.snakes = snakes;
     }
 
-    private List<Board>  hazards= new ArrayList<>();
-    private List<Slang> snakes = new ArrayList<>();
 
 }
