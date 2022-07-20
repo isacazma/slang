@@ -1,11 +1,15 @@
 package nl.hu.bep.battlesnake.webservices;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
+import nl.hu.bep.battlesnake.model.Snake;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.Console;
 
 class MoveResponse{
     public String move;
@@ -44,8 +48,20 @@ public class BattlesnakeResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response moveSnake(String r){
         System.out.println(r);
-        MoveResponse move = new MoveResponse("up","going Up");
-        return  Response.ok(move).build();
+        ObjectMapper om = new ObjectMapper();
+        try {
+            JsonNode request = om.readTree(r);
+            Board board = new Board(request.get("board"));
+            for (JsonNode node : request.get("board").get("snakes")) {
+                board.addSnake(new Snake(node));
+            }
+            System.out.println(board.getSnakes().get(0).getName());
+            MoveResponse move = new MoveResponse("up","going Up");
+            return  Response.ok(move).build();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return  Response.serverError().build();
     }
 
 

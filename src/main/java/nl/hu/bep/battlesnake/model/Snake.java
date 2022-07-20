@@ -1,10 +1,12 @@
 package nl.hu.bep.battlesnake.model;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Slang {
+public class Snake {
     private String id;
     private String name;
     private int health;
@@ -31,6 +33,25 @@ public class Slang {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Snake(JsonNode js) {
+        this.id = js.get("id").textValue();
+        this.name = js.get("name").textValue();
+
+        for (JsonNode node : js.get("body")) {
+            int x = node.get("x").intValue();
+            int y = node.get("y").intValue();
+            body.add(new Point(x,y));
+        }
+//        this.health = health;
+//        this.head = head;
+//        this.length = length;
+//        this.shout = shout;
+//        this.squad = squad;
+//        this.customizations_color = customizations_color;
+//        this.customizations_head = customizations_head;
+//        this.customizations_tail = customizations_tail;
     }
 
     public int getHealth() {

@@ -1,5 +1,7 @@
 package nl.hu.bep.battlesnake.model;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,17 +12,23 @@ public class Board {
     private int width;
     private List<Point> food = new ArrayList<>();
     private List<Board>  hazards= new ArrayList<>();
-    private List<Slang> snakes = new ArrayList<>();
+    private List<Snake> snakes = new ArrayList<>();
 
-    public Board() {
-        this.height = height;
-        this.width = width;
-        this.food = food;
-        this.hazards = hazards;
-        this.snakes = snakes;
+    public Board(JsonNode js) {
+        this.height = js.get("height").intValue();
+        this.width = js.get("width").intValue();
+        for (JsonNode node : js.get("food")) {
+            int x = node.get("x").intValue();
+            int y = node.get("y").intValue();
+            food.add(new Point(x,y));
+
+        }
+
+        this.hazards =null;
+
     }
 
-    public Board(int height, int width, List<Point> food, List<Board> hazards, List<Slang> snakes) {
+    public Board(int height, int width, List<Point> food, List<Board> hazards, List<Snake> snakes) {
         this.height = height;
         this.width = width;
         this.food = food;
@@ -60,12 +68,16 @@ public class Board {
         this.hazards = hazards;
     }
 
-    public List<Slang> getSnakes() {
+    public List<Snake> getSnakes() {
         return snakes;
     }
 
-    public void setSnakes(List<Slang> snakes) {
+    public void setSnakes(List<Snake> snakes) {
         this.snakes = snakes;
+    }
+
+    public void addSnake(Snake snake){
+        this.snakes.add(snake);
     }
 
 
