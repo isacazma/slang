@@ -4,11 +4,43 @@ public class MoveResponse{
     public String move;
     public  String shout;
 
+    public String getMove() {
+        return move;
+    }
+
+    public void setMove(String move) {
+        this.move = move;
+    }
+
+    public String getShout() {
+        return shout;
+    }
+
+    public void setShout(String shout) {
+        this.shout = shout;
+    }
+
     public  MoveResponse(String move , String shout){
         this.move = move;
         this.shout = shout;
+
+
+
     }
+//    public String keuze(Object head){
+//        if(head)
+//    }
 }
+
+
+//            gameMove hier
+//            gebruikt instantie van bord omdat het makelijker is om te llezen
+//             dus fuctie maken makelijker
+//            for (Snake snake : board.getSnakes()
+//                 ) {
+//
+//            }
+
 
 //import javax.ws.rs.Consumes;
 //import javax.ws.rs.POST;

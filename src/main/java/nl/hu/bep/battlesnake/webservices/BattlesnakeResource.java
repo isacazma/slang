@@ -60,15 +60,10 @@ public class BattlesnakeResource {
 
         System.out.println(board.getSnakes().get(0).getName());
             System.out.println(board.getSnakes().get(0).getBody());
-
+            System.out.println(board.getSnakes().get(0).getHead());
         MoveResponse move = new MoveResponse("up","going Up");
-//            gameMove hier
-//            gebruikt instantie van bord omdat het makelijker is om te llezen
-//             dus fuctie maken makelijker
-//            for (Snake snake : board.getSnakes()
-//                 ) {
-//
-//            }
+
+
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
