@@ -60,9 +60,10 @@ public class BattlesnakeResource {
 
         System.out.println(board.getSnakes().get(0).getName());
             System.out.println(board.getSnakes().get(0).getBody());
+            System.out.println(board.getSnakes().get(0).getHead());
             System.out.println(board.getSnakes().get(0).getHead().x);
-        MoveResponse move = new MoveResponse("up","going Up");
-
+            System.out.println(board.getSnakes().get(0).getHead().y);
+            MoveResponse move = new MoveResponse("up","going Up");
 
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
