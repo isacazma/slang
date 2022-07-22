@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
-
+import nl.hu.bep.battlesnake.parsers.MoveParser;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -49,16 +49,18 @@ public class BattlesnakeResource {
     @POST
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response moveSnake(String r){
+    public Response moveSnake(String r) throws JsonProcessingException {
+        MoveParser moveparser = new MoveParser();
         String f = " ik ben hier ";
-        System.out.println(f +r);
-        ObjectMapper om = new ObjectMapper();
-        try {
-            JsonNode request = om.readTree(r);
-            Board board = new Board(request.get("board"));
-            for (JsonNode node : request.get("board").get("snakes")) {
-                board.addSnake(new Snake(node));
-            }
+        Board board = moveparser.MoveParse(r);
+//        System.out.println(f +r);
+//        ObjectMapper om = new ObjectMapper();
+//        try {
+//            JsonNode request = om.readTree(r);
+//            Board board = new Board(request.get("board"));
+//            for (JsonNode node : request.get("board").get("snakes")) {
+//                board.addSnake(new Snake(node));
+//            }
 //            moveParser hier boven
 //             gaat json data in en java object uit
 //            kan java object lezen
