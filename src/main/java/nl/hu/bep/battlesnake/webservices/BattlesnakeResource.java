@@ -51,25 +51,14 @@ public class BattlesnakeResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response moveSnake(String r) throws JsonProcessingException {
         MoveParser moveparser = new MoveParser();
-        String f = " ik ben hier ";
+        System.out.println(r);
         try{
         Board board = moveparser.MoveParse(r);
-        System.out.println(f +r);
-//        ObjectMapper om = new ObjectMapper();
-//        try {
-//            JsonNode request = om.readTree(r);
-//            Board board = new Board(request.get("board"));
-//            for (JsonNode node : request.get("board").get("snakes")) {
-//                board.addSnake(new Snake(node));
-//            }
-//            moveParser hier boven
-//             gaat json data in en java object uit
-//            kan java object lezen
-//            een instantie van  board
-//            System.out.println(board.getSnakes().get(0).getName());
 
-            System.out.println(f+board + f);
-            MoveResponse move = new MoveResponse("up","going Up");
+
+        System.out.println(board.getSnakes().get(0).getName());
+            System.out.println(board.getSnakes().get(0).getBody());
+        MoveResponse move = new MoveResponse("up","going Up");
 //            gameMove hier
 //            gebruikt instantie van bord omdat het makelijker is om te llezen
 //             dus fuctie maken makelijker
