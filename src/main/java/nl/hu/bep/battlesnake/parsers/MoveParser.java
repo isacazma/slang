@@ -10,17 +10,13 @@ public class MoveParser {
 
     public Board MoveParse(String r) throws JsonProcessingException {
         ObjectMapper om = new ObjectMapper();
-        JsonNode request = null;
+
+        JsonNode request = om.readTree(r);
         Board board = new Board(request.get("board"));
 
-        try {
-            request = om.readTree(String.valueOf(r));
 
-            for (JsonNode node : request.get("board").get("snakes")) {
-                board.addSnake(new Snake(node));
-            }
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        for (JsonNode node : request.get("board").get("snakes")) {
+            board.addSnake(new Snake(node));
         }
 
         return board;
