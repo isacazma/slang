@@ -7,13 +7,19 @@ import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
 import nl.hu.bep.battlesnake.parsers.MoveParser;
-import nl.hu.bep.battlesnake.parsers.MoveResponse;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+class MoveResponse{
+    public String move;
+    public  String shout;
 
+    public  MoveResponse(String move , String shout){
+        this.move = move;
+        this.shout = shout;
+    }
+        }
 
 
 
