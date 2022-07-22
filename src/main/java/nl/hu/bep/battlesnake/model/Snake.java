@@ -38,11 +38,12 @@ public class Snake {
     public Snake(JsonNode js) {
         this.id = js.get("id").textValue();
         this.name = js.get("name").textValue();
-this.head = null;
+
         for (JsonNode node : js.get("head")) {
             int x = node.get("x").intValue();
             int y = node.get("y").intValue();
-           head =(new Point(x,y));
+            head = null;
+           head = new Point(x,y);
         }
 
         for (JsonNode node : js.get("body")) {
