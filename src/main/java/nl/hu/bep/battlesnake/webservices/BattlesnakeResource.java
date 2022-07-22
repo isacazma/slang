@@ -64,6 +64,7 @@ public class BattlesnakeResource {
 //            kan java object lezen
 //            een instantie van  board
             System.out.println(board.getSnakes().get(0).getName());
+            System.out.println(board);
             MoveResponse move = new MoveResponse("up","going Up");
 //            gameMove hier
 //            gebruikt instantie van bord omdat het makelijker is om te llezen
