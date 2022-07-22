@@ -7,19 +7,21 @@ import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
 import nl.hu.bep.battlesnake.parsers.MoveParser;
+import nl.hu.bep.battlesnake.parsers.MoveResponse;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-class MoveResponse{
-    public String move;
-    public  String shout;
-
-    public  MoveResponse(String move , String shout){
-        this.move = move;
-        this.shout = shout;
-    }
-        }
+//class MoveResponse{
+//    public String move;
+//    public  String shout;
+//
+//    public  MoveResponse(String move , String shout){
+//        this.move = move;
+//        this.shout = shout;
+//    }
+//        }
 
 
 
@@ -58,6 +60,7 @@ public class BattlesnakeResource {
 
         System.out.println(board.getSnakes().get(0).getName());
             System.out.println(board.getSnakes().get(0).getBody());
+
         MoveResponse move = new MoveResponse("up","going Up");
 //            gameMove hier
 //            gebruikt instantie van bord omdat het makelijker is om te llezen

@@ -1,14 +1,14 @@
-//package nl.hu.bep.battlesnake.parsers;
-//
-//public class MoveResponse{
-//    public String move;
-//    public  String shout;
-//
-//    public  MoveResponse(String move , String shout){
-//        this.move = move;
-//        this.shout = shout;
-//    }
-//}
+package nl.hu.bep.battlesnake.parsers;
+
+public class MoveResponse{
+    public String move;
+    public  String shout;
+
+    public  MoveResponse(String move , String shout){
+        this.move = move;
+        this.shout = shout;
+    }
+}
 
 //import javax.ws.rs.Consumes;
 //import javax.ws.rs.POST;
