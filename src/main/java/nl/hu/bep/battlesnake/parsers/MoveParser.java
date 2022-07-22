@@ -6,11 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.Snake;
 
+import javax.ws.rs.core.Response;
+
 public class MoveParser {
 
     public Board MoveParse(String r) throws JsonProcessingException {
         ObjectMapper om = new ObjectMapper();
-
+        try {
         JsonNode request = om.readTree(r);
         Board board = new Board(request.get("board"));
 
@@ -20,5 +22,8 @@ public class MoveParser {
         }
 
         return board;
-    }
-}
+    }catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }}
