@@ -80,6 +80,7 @@ public class Snake {
         return head;
     }
 
+
     public void setHead(Point head) {
         this.head = head;
     }
