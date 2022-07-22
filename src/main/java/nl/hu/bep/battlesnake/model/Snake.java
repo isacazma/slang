@@ -4,17 +4,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Snake {
     private String id;
     private String name;
     private int health;
     private List<Point> body = new ArrayList<>();
-//    private Point head;
-    private Map<String, Integer> head = new HashMap<>();
+    private Point head;
+
     private int length;
     private String shout;
     private String squad;
@@ -44,9 +42,8 @@ public class Snake {
 
         int xd = js.get("head").get("x").intValue();
         int yd = js.get("head").get("y").intValue();
-//        this.head = null;
-        this.head.put("xnn",xd);
-        this.head.put("y",yd);
+        this.head = null;
+        head = new Point(xd,yd);
 
         for (JsonNode node : js.get("body")) {
             int x = node.get("x").intValue();
@@ -79,21 +76,13 @@ public class Snake {
         this.body = body;
     }
 
-    public Map<String, Integer> getHead() {
+    public Point getHead() {
         return head;
     }
 
-    public void setHead(Map<String, Integer> head) {
+    public void setHead(Point head) {
         this.head = head;
     }
-
-//    public Point getHead() {
-//        return head;
-//    }
-//
-//    public void setHead(Point head) {
-//        this.head = head;
-//    }
 
     public int getLength() {
         return length;
