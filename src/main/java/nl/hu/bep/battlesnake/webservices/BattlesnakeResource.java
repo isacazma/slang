@@ -43,11 +43,15 @@ public class BattlesnakeResource {
         return Response.ok().build();
     }
 
+
+
+
     @POST
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response moveSnake(String r){
-        System.out.println(r);
+        String f = " ik ben hier ";
+        System.out.println(f +r);
         ObjectMapper om = new ObjectMapper();
         try {
             JsonNode request = om.readTree(r);
@@ -55,8 +59,19 @@ public class BattlesnakeResource {
             for (JsonNode node : request.get("board").get("snakes")) {
                 board.addSnake(new Snake(node));
             }
+//            moveParser hier boven
+//             gaat json data in en java object uit
+//            kan java object lezen
+//            een instantie van  board
             System.out.println(board.getSnakes().get(0).getName());
             MoveResponse move = new MoveResponse("up","going Up");
+//            gameMove hier
+//            gebruikt instantie van bord omdat het makelijker is om te llezen
+//             dus fuctie maken makelijker
+            for (Snake snake : board.getSnakes()
+                 ) {
+
+            }
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
