@@ -52,6 +52,7 @@ public class BattlesnakeResource {
     public Response moveSnake(String r) throws JsonProcessingException {
         MoveParser moveparser = new MoveParser();
         String f = " ik ben hier ";
+        try{
         Board board = moveparser.MoveParse(r);
 //        System.out.println(f +r);
 //        ObjectMapper om = new ObjectMapper();
@@ -72,10 +73,10 @@ public class BattlesnakeResource {
 //            gameMove hier
 //            gebruikt instantie van bord omdat het makelijker is om te llezen
 //             dus fuctie maken makelijker
-            for (Snake snake : board.getSnakes()
-                 ) {
-
-            }
+//            for (Snake snake : board.getSnakes()
+//                 ) {
+//
+//            }
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
