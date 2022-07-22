@@ -45,7 +45,7 @@ public class Snake {
         int xd = js.get("head").get("x").intValue();
         int yd = js.get("head").get("y").intValue();
 //        this.head = null;
-        this.head.put("x",xd);
+        this.head.put("xnn",xd);
         this.head.put("y",yd);
 
         for (JsonNode node : js.get("body")) {
