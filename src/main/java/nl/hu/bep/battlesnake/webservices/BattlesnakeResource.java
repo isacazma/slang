@@ -7,19 +7,13 @@ import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
 import nl.hu.bep.battlesnake.parsers.MoveParser;
+import nl.hu.bep.battlesnake.parsers.MoveResponse;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-class MoveResponse{
-    public String move;
-    public  String shout;
 
-    public  MoveResponse(String move , String shout){
-        this.move = move;
-        this.shout = shout;
-    }
-        }
 
 
 
@@ -54,7 +48,7 @@ public class BattlesnakeResource {
         String f = " ik ben hier ";
         try{
         Board board = moveparser.MoveParse(r);
-//        System.out.println(f +r);
+        System.out.println(f +r);
 //        ObjectMapper om = new ObjectMapper();
 //        try {
 //            JsonNode request = om.readTree(r);
@@ -66,7 +60,7 @@ public class BattlesnakeResource {
 //             gaat json data in en java object uit
 //            kan java object lezen
 //            een instantie van  board
-            System.out.println(board.getSnakes().get(0).getName());
+//            System.out.println(board.getSnakes().get(0).getName());
 
             System.out.println(f+board + f);
             MoveResponse move = new MoveResponse("up","going Up");
