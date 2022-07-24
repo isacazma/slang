@@ -1,34 +1,36 @@
-package nl.hu.bep.battlesnake.parsers;
+package nl.hu.bep.battlesnake.model;
 
 public class MoveResponse{
-    public String move;
-    public  String shout;
+    private String move;
+    private String shout;
+
+    public MoveResponse(String move , String shout){
+        this.move = move;
+        this.shout = shout;
+    }
 
     public String getMove() {
         return move;
     }
-
     public void setMove(String move) {
         this.move = move;
     }
-
     public String getShout() {
         return shout;
     }
-
     public void setShout(String shout) {
         this.shout = shout;
     }
 
-    public  MoveResponse(String move , String shout){
-        this.move = move;
-        this.shout = shout;
 
 
 
-    }
-//    public String keuze(Object head){
-//        if(head)
+//    public String keuze(int x,int y){
+//        String move = "l";
+//        if(y >= 10 && x < 5){
+//            move = "right";
+//        }
+//        if(y >= )
 //    }
 }
 

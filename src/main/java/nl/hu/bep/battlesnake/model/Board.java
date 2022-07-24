@@ -11,8 +11,9 @@ public class Board {
     private int height;
     private int width;
     private List<Point> food = new ArrayList<>();
-    private List<Board>  hazards= new ArrayList<>();
+    private List<Board> hazards = new ArrayList<>();
     private List<Snake> snakes = new ArrayList<>();
+    private Snake you;
 
     public Board(JsonNode js) {
         this.height = js.get("height").intValue();
@@ -21,7 +22,6 @@ public class Board {
             int x = node.get("x").intValue();
             int y = node.get("y").intValue();
             food.add(new Point(x,y));
-
         }
 
         this.hazards =null;

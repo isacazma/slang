@@ -1,13 +1,12 @@
 package nl.hu.bep.battlesnake.webservices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
-import nl.hu.bep.battlesnake.parsers.MoveParser;
-import nl.hu.bep.battlesnake.parsers.MoveResponse;
+import nl.hu.bep.battlesnake.movement.DataParser;
+import nl.hu.bep.battlesnake.model.MoveResponse;
+import nl.hu.bep.battlesnake.movement.MoveController;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -52,18 +51,20 @@ public class BattlesnakeResource {
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response moveSnake(String r) throws JsonProcessingException {
-        MoveParser moveparser = new MoveParser();
+        DataParser dataparser = new DataParser();
         System.out.println(r);
+
         try{
-        Board board = moveparser.MoveParse(r);
+            dataparser.DataParse(r);
+            Board board = dataparser.getBoard();
+            Snake you = dataparser.getYou();
+
+            MoveController moveController = new MoveController(board, you);
 
 
-        System.out.println(board.getSnakes().get(0).getName());
-            System.out.println(board.getSnakes().get(0).getBody());
-            System.out.println(board.getSnakes().get(0).getHead());
-            System.out.println(board.getSnakes().get(0).getHead().x);
-            System.out.println(board.getSnakes().get(0).getHead().y);
-            MoveResponse move = new MoveResponse("up","going Up");
+            MoveResponse move = new MoveResponse("UP", "hallo JUMBO");
+//           move = move.TomTom();
+
 
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
@@ -71,8 +72,8 @@ public class BattlesnakeResource {
         }
         return  Response.serverError().build();
     }
-
-
+//            System.out.println(board.getSnakes().get(0).getHead().x);
+//            System.out.println(board.getSnakes().get(0).getHead().y);
     @POST
     @Path("/end")
     @Consumes(MediaType.APPLICATION_JSON)
