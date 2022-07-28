@@ -33,7 +33,8 @@ public class MoveController {
         snakeCollisionCheck();
         // fastest way to food
         Move bestMove = moveToFood();
-
+        System.out.println("ooow");
+System.out.println(bestMove);
         return new MoveResponse(bestMove.name(), "HALLO JUMBO");
     }
 
