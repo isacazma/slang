@@ -120,6 +120,8 @@ System.out.println(bestMove);
                 pointOfInterest = food;
             }
         }
+        System.out.println("ooowddd");
+        System.out.println(pointOfInterest);
         return pointOfInterest;
     }
 
