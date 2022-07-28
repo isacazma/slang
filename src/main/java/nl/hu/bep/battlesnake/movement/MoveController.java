@@ -80,19 +80,31 @@ public class MoveController {
     private Move moveToFood(){
 
         Point nearestFoodPoint = nearestFoodPoint();
-        if(nearestFoodPoint == null){
-            // random move
-        }
+
+        if(nearestFoodPoint == null && possibleMoves != null)
+           possibleMoves.get(0);
+
 //hier maak je weg naar eten
-        // Walk Y
-        if() {
+        // Walk Y hoogte
+        if(nearestFoodPoint.y > you.getHead().y && possibleMoves.contains((Move.UP)))
+        return Move.UP;
 
-        }
-        if() {
+        if(nearestFoodPoint.y < you.getHead().y && possibleMoves.contains((Move.DOWN)))
+            return Move.DOWN;
 
-        }
-        // Walk X
 
+// hoogte is rechts
+        if(nearestFoodPoint.x > you.getHead().x && possibleMoves.contains((Move.RIGHT)))
+            return Move.RIGHT;
+
+        if(nearestFoodPoint.x < you.getHead().x && possibleMoves.contains((Move.LEFT)))
+            return Move.LEFT;
+
+        if(possibleMoves == null)
+        {this.possibleMoves.add(Move.DOWN);}
+
+
+       return possibleMoves.get(0);
     }
 
     private Point nearestFoodPoint(){
