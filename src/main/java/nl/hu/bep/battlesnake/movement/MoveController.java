@@ -121,6 +121,8 @@ System.out.println(bestMove);
             }
         }
         System.out.println("ooowddd");
+        System.out.println(bestScore);
+
         System.out.println(pointOfInterest);
         return pointOfInterest;
     }
