@@ -109,7 +109,7 @@ System.out.println(bestMove);
     }
 
     private Point nearestFoodPoint(){
-        double bestScore = Integer.MAX_VALUE;
+        double bestScore = 0;
         Point pointOfInterest = null;
         for(Point food : this.board.getFood()) {
             // √[(x₂ - x₁)² + (y₂ - y₁)²]
