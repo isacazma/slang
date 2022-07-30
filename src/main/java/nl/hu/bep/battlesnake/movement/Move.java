@@ -2,7 +2,7 @@ package nl.hu.bep.battlesnake.movement;
 
 public enum Move {
     UP,
-    dOWN,
+    DOWN,
     lEFT,
-    rIGHT
+    RIGHT
 }
