@@ -18,7 +18,7 @@ import javax.ws.rs.Path;
 
 //class MoveResponse{
 //    public String move;
-//    public  String shout;
+//    public  String shoukt;
 //
 //    public  MoveResponse(String move , String shout){
 //        this.move = move;
