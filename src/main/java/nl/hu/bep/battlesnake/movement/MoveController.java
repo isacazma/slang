@@ -6,7 +6,6 @@ import nl.hu.bep.battlesnake.model.Snake;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Locale;
 
 // Move controller will determine move based on Board object
 public class MoveController {
@@ -26,7 +25,7 @@ public class MoveController {
         this.possibleMoves.add(Move.RIGHT);
     }
 
-    public String getBestMove() {
+    public MoveResponse getBestMove() {
 
         // Collision check
         collisionCheck();
@@ -36,8 +35,8 @@ public class MoveController {
         Move bestMove = moveToFood();
         System.out.println("ooow");
 System.out.println(bestMove);
-String terug = bestMove.name();
-        return terug.toLowerCase(Locale.ROOT);
+
+        return new MoveResponse(bestMove.name().toLowerCase(), "HALLO JUMBO");
     }
 
     private void collisionCheck(){

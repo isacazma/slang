@@ -62,8 +62,7 @@ public class BattlesnakeResource {
             MoveController moveController = new MoveController(board, you);
 
 
-            String movfe =  moveController.getBestMove();
-            MoveResponse move = new MoveResponse(movfe,"going Up");
+            MoveResponse move =  moveController.getBestMove();
 //                    new MoveResponse("UP", "hallo JUMBO");
 //           move = move.TomTom();
 
