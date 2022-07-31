@@ -50,7 +50,8 @@ public class BattlesnakeResource {
     @POST
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response moveSnake(String r) throws JsonProcessingException {
+//    throws JsonProcessingException
+    public Response moveSnake(String r)  {
         DataParser dataparser = new DataParser();
         System.out.println(r);
 
