@@ -34,7 +34,7 @@ public class MoveController {
         // fastest way to food
         Move bestMove = moveToFood();
         System.out.println("ooow");
-System.out.println(bestMove);
+System.out.println(bestMove.name().toLowerCase());
 
         return new MoveResponse(bestMove.name().toLowerCase(), "HALLO JUMBO");
     }
