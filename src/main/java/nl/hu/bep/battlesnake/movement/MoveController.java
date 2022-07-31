@@ -6,6 +6,7 @@ import nl.hu.bep.battlesnake.model.Snake;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 // Move controller will determine move based on Board object
 public class MoveController {
@@ -36,7 +37,7 @@ public class MoveController {
         System.out.println("ooow");
 System.out.println(bestMove);
 String terug = bestMove.name();
-        return terug;
+        return terug.toLowerCase(Locale.ROOT);
     }
 
     private void collisionCheck(){
