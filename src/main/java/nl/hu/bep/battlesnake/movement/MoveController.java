@@ -35,7 +35,8 @@ public class MoveController {
         Move bestMove = moveToFood();
         System.out.println("ooow");
 System.out.println(bestMove);
-        return new MoveResponse(bestMove.name(), "HALLO JUMBO");
+String terug = bestMove.name();
+        return new MoveResponse(terug, "HALLO JUMBO");
     }
 
     private void collisionCheck(){
