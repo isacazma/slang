@@ -66,7 +66,8 @@ public class BattlesnakeResource {
 //                    new MoveResponse("UP", "hallo JUMBO");
 //           move = move.TomTom();
 
-
+System.out.println("is het hier");
+System.out.println(move);
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
