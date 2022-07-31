@@ -25,7 +25,7 @@ public class MoveController {
         this.possibleMoves.add(Move.RIGHT);
     }
 
-    public MoveResponse getBestMove() {
+    public String getBestMove() {
 
         // Collision check
         collisionCheck();
@@ -35,8 +35,9 @@ public class MoveController {
         Move bestMove = moveToFood();
         System.out.println("ooow");
 System.out.println(bestMove.name().toLowerCase());
-
-        return new MoveResponse(bestMove.name().toLowerCase(), "HALLO JUMBO");
+String terugString = bestMove.name().toLowerCase();
+return  terugString;
+//        return new MoveResponse(bestMove.name().toLowerCase(), "HALLO JUMBO");
     }
 
     private void collisionCheck(){
