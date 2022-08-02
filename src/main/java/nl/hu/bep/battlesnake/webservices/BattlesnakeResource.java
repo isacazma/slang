@@ -68,15 +68,13 @@ public class BattlesnakeResource {
 
 
            String moved =  moveController.getBestMove();
-            MoveResponse move = new MoveResponse();
-            move.setMove(moved);
-            move.setShout("jumboooooo");
+            MoveResponse move = new MoveResponse(moved,"cola zero");
 //                    new MoveResponse("UP", "hallo JUMBO");
 //           move = move.TomTom();
 
 System.out.println("is het hier");
-//System.out.println(moved);
-//System.out.println(move);
+System.out.println(moved);
+System.out.println(move);
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
