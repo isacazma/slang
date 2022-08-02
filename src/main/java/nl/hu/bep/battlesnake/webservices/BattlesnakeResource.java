@@ -5,7 +5,7 @@ import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
 import nl.hu.bep.battlesnake.movement.DataParser;
-import nl.hu.bep.battlesnake.model.MoveResponse;
+//import nl.hu.bep.battlesnake.model.MoveResponse;
 import nl.hu.bep.battlesnake.movement.MoveController;
 
 import javax.ws.rs.*;
@@ -16,15 +16,15 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 
-//class MoveResponse{
-//    public String move;
-//    public  String shoukt;
-//
-//    public  MoveResponse(String move , String shout){
-//        this.move = move;
-//        this.shout = shout;
-//    }
-//        }
+class MoveResponse{
+    public String move;
+    public  String shout;
+
+    public  MoveResponse(String move , String shout){
+        this.move = move;
+        this.shout = shout;
+    }
+        }
 
 
 
@@ -68,9 +68,9 @@ public class BattlesnakeResource {
 
 
            String moved =  moveController.getBestMove();
-            MoveResponse move = new MoveResponse();
-            move.setMove(moved);
-            move.setShout("jumboooooo");
+            MoveResponse move = new MoveResponse(moved,"jumno");
+//            move.setMove(moved);
+//            move.setShout("jumboooooo");
 //                    new MoveResponse("UP", "hallo JUMBO");
 //           move = move.TomTom();
 
