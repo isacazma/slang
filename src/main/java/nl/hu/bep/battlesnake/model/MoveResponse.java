@@ -9,6 +9,8 @@ public class MoveResponse{
         this.shout = shout;
     }
 
+    public MoveResponse(){}
+
     public String getMove() {
         return move;
     }
