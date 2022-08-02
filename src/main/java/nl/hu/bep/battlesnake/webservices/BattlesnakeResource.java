@@ -68,7 +68,9 @@ public class BattlesnakeResource {
 
 
            String moved =  moveController.getBestMove();
-            MoveResponse move = new MoveResponse(moved,"k");
+            MoveResponse move = new MoveResponse();
+            move.setMove(moved);
+            move.setShout("jumboooooo");
 //                    new MoveResponse("UP", "hallo JUMBO");
 //           move = move.TomTom();
 
