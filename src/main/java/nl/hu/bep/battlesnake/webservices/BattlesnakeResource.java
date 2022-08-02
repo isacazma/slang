@@ -55,7 +55,7 @@ public class BattlesnakeResource {
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
 //    throws JsonProcessingException
-    public Response moveSnake(String r)  {
+    public Response moveSnake(String r)  throws JsonProcessingException {
         DataParser dataparser = new DataParser();
         System.out.println(r);
 
@@ -73,16 +73,16 @@ public class BattlesnakeResource {
 //           move = move.TomTom();
 
 System.out.println("is het hier");
-System.out.println(moved);
-System.out.println(move);
+//System.out.println(moved);
+//System.out.println(move);
             return  Response.ok(move).build();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return  Response.serverError().build();
     }
-//            System.out.println(board.getSnakes().get(0).getHead().x);
-//            System.out.println(board.getSnakes().get(0).getHead().y);
+
+
     @POST
     @Path("/end")
     @Consumes(MediaType.APPLICATION_JSON)
