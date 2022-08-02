@@ -1,8 +1,8 @@
 package nl.hu.bep.battlesnake.model;
 
 public class MoveResponse{
-    private String move;
-    private String shout;
+    public String move;
+    public String shout;
 
     public MoveResponse(String move , String shout){
         this.move = move;
