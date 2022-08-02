@@ -1,7 +1,7 @@
 package nl.hu.bep.battlesnake.movement;
 
 import nl.hu.bep.battlesnake.model.Board;
-import nl.hu.bep.battlesnake.model.MoveResponse;
+//import nl.hu.bep.battlesnake.model.MoveResponse;
 import nl.hu.bep.battlesnake.model.Snake;
 
 import java.awt.*;
