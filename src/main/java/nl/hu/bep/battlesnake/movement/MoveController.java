@@ -1,14 +1,11 @@
 package nl.hu.bep.battlesnake.movement;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.MoveResponse;
 import nl.hu.bep.battlesnake.model.Snake;
 
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
 // Move controller will determine move based on Board object
@@ -23,10 +20,10 @@ public class MoveController {
         this.you = you;
 
         this.possibleMoves = new ArrayList<>();
-        this.possibleMoves.add(Move.UP);
-        this.possibleMoves.add(Move.DOWN);
-        this.possibleMoves.add(Move.LEFT);
-        this.possibleMoves.add(Move.RIGHT);
+        this.possibleMoves.add(Move.up);
+        this.possibleMoves.add(Move.down);
+        this.possibleMoves.add(Move.left);
+        this.possibleMoves.add(Move.right);
     }
 
     public Move getBestMove() {
@@ -47,13 +44,13 @@ public class MoveController {
 
     private void collisionCheck(){
         if(you.getHead().x == 0)
-            possibleMoves.remove(Move.LEFT);
+            possibleMoves.remove(Move.left);
         if(you.getHead().x == board.getWidth()-1)
-            possibleMoves.remove(Move.RIGHT);
+            possibleMoves.remove(Move.right);
         if(you.getHead().y == board.getHeight()-1)
-            possibleMoves.remove(Move.UP);
+            possibleMoves.remove(Move.up);
         if(you.getHead().y == 0)
-            possibleMoves.remove(Move.DOWN);
+            possibleMoves.remove(Move.down);
     }
 
     private void snakeCollisionCheck(){
@@ -67,19 +64,19 @@ public class MoveController {
 
                 if(point.x == you.getHead().x - 1 && point.y == you.getHead().y){
                     // No possible move to left
-                    this.possibleMoves.remove(Move.LEFT);
+                    this.possibleMoves.remove(Move.left);
                 }
                 if(point.x == you.getHead().x + 1 && point.y == you.getHead().y){
                     // No possible move to right
-                    this.possibleMoves.remove(Move.RIGHT);
+                    this.possibleMoves.remove(Move.right);
                 }
                 if(point.y == you.getHead().y + 1 && point.x == you.getHead().x){
                     // No possible move to up
-                    this.possibleMoves.remove(Move.UP);
+                    this.possibleMoves.remove(Move.up);
                 }
                 if(point.y == you.getHead().y - 1 && point.x == you.getHead().x){
                     // No possible move to down
-                    this.possibleMoves.remove(Move.DOWN);
+                    this.possibleMoves.remove(Move.down);
                 }
             }
         }
@@ -94,22 +91,22 @@ public class MoveController {
 
 //hier maak je weg naar eten
         // Walk Y hoogte
-        if(nearestFoodPoint.y > you.getHead().y && possibleMoves.contains((Move.UP)))
-        return Move.UP;
+        if(nearestFoodPoint.y > you.getHead().y && possibleMoves.contains((Move.up)))
+        return Move.up;
 
-        if(nearestFoodPoint.y < you.getHead().y && possibleMoves.contains((Move.DOWN)))
-            return Move.DOWN;
+        if(nearestFoodPoint.y < you.getHead().y && possibleMoves.contains((Move.down)))
+            return Move.down;
 
 
 // hoogte is rechts
-        if(nearestFoodPoint.x > you.getHead().x && possibleMoves.contains((Move.RIGHT)))
-            return Move.RIGHT;
+        if(nearestFoodPoint.x > you.getHead().x && possibleMoves.contains((Move.right)))
+            return Move.right;
 
-        if(nearestFoodPoint.x < you.getHead().x && possibleMoves.contains((Move.LEFT)))
-            return Move.LEFT;
+        if(nearestFoodPoint.x < you.getHead().x && possibleMoves.contains((Move.left)))
+            return Move.left;
 
         if(possibleMoves == null)
-        {this.possibleMoves.add(Move.DOWN);}
+        {this.possibleMoves.add(Move.down);}
 
 
        return possibleMoves.get(0);

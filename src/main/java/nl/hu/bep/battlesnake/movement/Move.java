@@ -1,8 +1,8 @@
 package nl.hu.bep.battlesnake.movement;
 
 public enum Move {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+    up,
+    down,
+    left,
+    right
 }

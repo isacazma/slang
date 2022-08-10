@@ -16,9 +16,13 @@ public class MoveResponse{
     public Move getMove() {
         return move;
     }
+
     public void setMove(Move move) {
         this.move = move;
     }
+
+
+
     public String getShout() {
         return shout;
     }
