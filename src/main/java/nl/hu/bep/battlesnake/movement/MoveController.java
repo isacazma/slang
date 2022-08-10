@@ -7,6 +7,7 @@ import nl.hu.bep.battlesnake.model.Snake;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 // Move controller will determine move based on Board object
 public class MoveController {
@@ -105,8 +106,8 @@ public class MoveController {
         if(nearestFoodPoint.x < you.getHead().x && possibleMoves.contains((Move.left)))
             return Move.left;
 
-        //zelfmoord
-        return Move.down;
+        Random r = new Random();
+        return possibleMoves.get(r.nextInt(0,possibleMoves.size()));
     }
 
     private Point nearestFoodPoint(){
