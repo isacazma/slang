@@ -117,7 +117,7 @@ public class MoveController {
             // √[(x₂ - x₁)² + (y₂ - y₁)²]
             double score = Math.sqrt(Math.pow(food.x - you.getHead().x, 2) + Math.pow(food.y - you.getHead().y, 2));
             // If the new score of the food is closer than the best score -> make it the best score
-            if(score > bestScore){
+            if(score < bestScore){
                 bestScore = score;
                 pointOfInterest = food;
             }
