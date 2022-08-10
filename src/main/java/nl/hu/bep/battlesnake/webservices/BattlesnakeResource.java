@@ -6,6 +6,7 @@ import nl.hu.bep.battlesnake.model.GameInformation;
 import nl.hu.bep.battlesnake.model.Snake;
 import nl.hu.bep.battlesnake.movement.DataParser;
 import nl.hu.bep.battlesnake.model.MoveResponse;
+import nl.hu.bep.battlesnake.movement.Move;
 import nl.hu.bep.battlesnake.movement.MoveController;
 
 import javax.ws.rs.*;
@@ -67,15 +68,17 @@ public class BattlesnakeResource {
             MoveController moveController = new MoveController(board, you);
 
 
-           String moved =  moveController.getBestMove();
-            MoveResponse move = new MoveResponse(moved,"cola zero");
-//                    new MoveResponse("UP", "hallo JUMBO");
-//           move = move.TomTom();
+            Move move =  moveController.getBestMove();
+            MoveResponse moveResponse = new MoveResponse(move,"cola zero");
 
-System.out.println("is het hier");
-System.out.println(moved);
-System.out.println(move);
-            return  Response.ok(move).build();
+
+            String moveResponseJson = moveController.getJson(moveResponse);
+            System.out.println("jsonMoveResponse: ");
+            System.out.println(moveResponseJson);
+
+
+            return  Response.ok(moveResponseJson).build();
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

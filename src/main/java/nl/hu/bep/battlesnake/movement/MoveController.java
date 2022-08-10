@@ -1,10 +1,14 @@
 package nl.hu.bep.battlesnake.movement;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.bep.battlesnake.model.Board;
 import nl.hu.bep.battlesnake.model.MoveResponse;
 import nl.hu.bep.battlesnake.model.Snake;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 // Move controller will determine move based on Board object
@@ -25,7 +29,7 @@ public class MoveController {
         this.possibleMoves.add(Move.RIGHT);
     }
 
-    public String getBestMove() {
+    public Move getBestMove() {
 
         // Collision check
         collisionCheck();
@@ -33,11 +37,12 @@ public class MoveController {
         snakeCollisionCheck();
         // fastest way to food
         Move bestMove = moveToFood();
-        System.out.println("ooow");
-System.out.println(bestMove.name().toLowerCase());
-String terugString = bestMove.name().toLowerCase();
-return  terugString;
-//        return new MoveResponse(bestMove.name().toLowerCase(), "HALLO JUMBO");
+
+
+        System.out.println(bestMove.name().toLowerCase());
+
+        return  bestMove;
+
     }
 
     private void collisionCheck(){
@@ -129,5 +134,21 @@ return  terugString;
         return pointOfInterest;
     }
 
+    public String getJson(MoveResponse moveResponse){
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+
+            //Convert object to JSON string
+            String jsonInString = mapper.writeValueAsString(moveResponse);
+            System.out.println(jsonInString);
+            return jsonInString;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 }
