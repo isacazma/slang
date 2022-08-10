@@ -87,29 +87,26 @@ public class MoveController {
         Point nearestFoodPoint = nearestFoodPoint();
 
         if(nearestFoodPoint == null && possibleMoves != null)
-           possibleMoves.get(0);
+          return null;
 
-//hier maak je weg naar eten
+        //hier maak je weg naar eten
         // Walk Y hoogte
         if(nearestFoodPoint.y > you.getHead().y && possibleMoves.contains((Move.up)))
-        return Move.up;
+            return Move.up;
 
         if(nearestFoodPoint.y < you.getHead().y && possibleMoves.contains((Move.down)))
             return Move.down;
 
 
-// hoogte is rechts
+        // hoogte is rechts
         if(nearestFoodPoint.x > you.getHead().x && possibleMoves.contains((Move.right)))
             return Move.right;
 
         if(nearestFoodPoint.x < you.getHead().x && possibleMoves.contains((Move.left)))
             return Move.left;
 
-        if(possibleMoves == null)
-        {this.possibleMoves.add(Move.down);}
-
-
-       return possibleMoves.get(0);
+        //zelfmoord
+        return Move.down;
     }
 
     private Point nearestFoodPoint(){
