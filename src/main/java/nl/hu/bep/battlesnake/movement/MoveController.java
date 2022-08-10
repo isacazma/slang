@@ -111,7 +111,7 @@ public class MoveController {
     }
 
     private Point nearestFoodPoint(){
-        double bestScore = 0;
+        double bestScore = Integer.MAX_VALUE;
         Point pointOfInterest = null;
         for(Point food : this.board.getFood()) {
             // √[(x₂ - x₁)² + (y₂ - y₁)²]
