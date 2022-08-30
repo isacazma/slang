@@ -1,11 +1,8 @@
 package nl.hu.bep.battlesnake.webservices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import nl.hu.bep.battlesnake.model.Board;
-import nl.hu.bep.battlesnake.model.GameInformation;
-import nl.hu.bep.battlesnake.model.Snake;
+import nl.hu.bep.battlesnake.model.*;
 import nl.hu.bep.battlesnake.movement.DataParser;
-import nl.hu.bep.battlesnake.model.MoveResponse;
 import nl.hu.bep.battlesnake.movement.Move;
 import nl.hu.bep.battlesnake.movement.MoveController;
 
@@ -15,6 +12,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -65,10 +64,9 @@ System.out.println("kk hoer");
     @POST
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response startGame(){
-        return Response.ok().build();
+    public javax.ws.rs.core.Response start() throws SQLException {
+        return javax.ws.rs.core.Response.ok("Start").build();
     }
-
 
 
 
@@ -105,6 +103,30 @@ System.out.println("kk hoer");
         return  Response.serverError().build();
     }
 
+    @GET
+    @Path("/games")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Integer> games(){
+        Game game = new Game();
+        return game.getDbData();
+    }
+
+    @GET
+    @Path("/games/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Map<String, Object> games(@PathParam("id") int gameID){
+        Game game = new Game();
+        return game.getDbSingleData(gameID);
+    }
+
+    @DELETE
+    @Path("/deleteGame")
+    @Produces(MediaType.APPLICATION_JSON)
+    public javax.ws.rs.core.Response deleteGame(int x) throws SQLException {
+        Game game = new Game();
+        game.deleteDBData(x);
+        return javax.ws.rs.core.Response.ok("Game is deleted.").build();
+    }
 
     @POST
     @Path("/end")

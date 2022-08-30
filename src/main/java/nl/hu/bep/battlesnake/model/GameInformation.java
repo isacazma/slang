@@ -52,7 +52,7 @@ public class GameInformation {
     }
 
 
-    private GameInformation(){}
+    public GameInformation(){}
 
     public GameInformation(String apiversion, String author, String color, String head, String tail) {
         this.apiversion = apiversion;
