@@ -86,55 +86,55 @@ System.out.println("kk hoer");
         return  Response.serverError().build();
     }
 
-    @GET
-    @Path("/games")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Integer> games(){
-        Game game = new Game();
-        return game.getDbData();
-    }
-
-    @GET
-    @Path("/games/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Map<String, Object> games(@PathParam("id") int gameID){
-        Game game = new Game();
-        return game.getDbSingleData(gameID);
-    }
-
-    @DELETE
-    @Path("/deleteGame")
-    @Produces(MediaType.APPLICATION_JSON)
-    public javax.ws.rs.core.Response deleteGame(int x) throws SQLException {
-        Game game = new Game();
-        game.deleteDBData(x);
-        return javax.ws.rs.core.Response.ok("Game is deleted.").build();
-    }
-
-
-    @POST
-    @Path("/end")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Object handleEnd(Map<String, Object> requestBody) throws SQLException {
-        Game game = new Game();
-        String getID = "";
-
-        Map<String, Object> mapGame = (Map<String, Object>) requestBody.get("game");
-        for (String key : mapGame.keySet()) {
-            if (key == "id"){
-                getID = mapGame.get("id").toString();
-            }
-        }
-
-        Map<String, Object> mapYou = (Map<String, Object>) requestBody.get("you");
-        for (String key : mapYou.keySet()) {
-            if (key == "length") {
-                game.setDBData(getID, requestBody.get("turn").toString(), mapYou.get("length").toString());
-            }
-
-        }
-
-        Map<String, Object> responseObject = new HashMap<String, Object>();
-        return responseObject;
-    }
+//    @GET
+//    @Path("/games")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List<Integer> games(){
+//        Game game = new Game();
+//        return game.getDbData();
+//    }
+//
+//    @GET
+//    @Path("/games/{id}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Map<String, Object> games(@PathParam("id") int gameID){
+//        Game game = new Game();
+//        return game.getDbSingleData(gameID);
+//    }
+//
+//    @DELETE
+//    @Path("/deleteGame")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public javax.ws.rs.core.Response deleteGame(int x) throws SQLException {
+//        Game game = new Game();
+//        game.deleteDBData(x);
+//        return javax.ws.rs.core.Response.ok("Game is deleted.").build();
+//    }
+//
+//
+//    @POST
+//    @Path("/end")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public Object handleEnd(Map<String, Object> requestBody) throws SQLException {
+//        Game game = new Game();
+//        String getID = "";
+//
+//        Map<String, Object> mapGame = (Map<String, Object>) requestBody.get("game");
+//        for (String key : mapGame.keySet()) {
+//            if (key == "id"){
+//                getID = mapGame.get("id").toString();
+//            }
+//        }
+//
+//        Map<String, Object> mapYou = (Map<String, Object>) requestBody.get("you");
+//        for (String key : mapYou.keySet()) {
+//            if (key == "length") {
+//                game.setDBData(getID, requestBody.get("turn").toString(), mapYou.get("length").toString());
+//            }
+//
+//        }
+//
+//        Map<String, Object> responseObject = new HashMap<String, Object>();
+//        return responseObject;
+//    }
 }
