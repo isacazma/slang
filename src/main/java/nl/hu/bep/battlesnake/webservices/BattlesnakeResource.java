@@ -31,10 +31,10 @@ public class BattlesnakeResource {
     @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public javax.ws.rs.core.Response update(@FormParam("color") String color, @FormParam("head") String head, @FormParam("tail") String tail){
-//        String author = "Alucard";
+
         GameInformation updateSnake = new GameInformation("Alucard", color, head, tail);
         if (dao.update(updateSnake)){
-            return javax.ws.rs.core.Response.ok("Je hebt de snake geupdate.").build();
+            return javax.ws.rs.core.Response.ok("klaar").build();
         }
 
         return javax.ws.rs.core.Response.ok().build();
@@ -68,7 +68,7 @@ public class BattlesnakeResource {
 
 
             Move move =  moveController.getBestMove();
-            MoveResponse moveResponse = new MoveResponse(move,"cola zero");
+            MoveResponse moveResponse = new MoveResponse(move,"Hallo Jumbo");
 
 
             String moveResponseJson = moveController.getJson(moveResponse);
