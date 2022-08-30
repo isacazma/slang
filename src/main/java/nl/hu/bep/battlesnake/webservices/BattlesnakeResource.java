@@ -45,9 +45,10 @@ public class BattlesnakeResource {
     public javax.ws.rs.core.Response update(@FormParam("color") String color, @FormParam("head") String head, @FormParam("tail") String tail){
         GameInformation updateSnake = new GameInformation("Alucard", color, head, tail);
         if (dao.update(updateSnake)){
+            System.out.println("kk slet");
             return javax.ws.rs.core.Response.ok("Je hebt de snake geupdate.").build();
         }
-
+System.out.println("kk hoer");
         return javax.ws.rs.core.Response.ok().build();
     }
 
