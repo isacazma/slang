@@ -17,7 +17,7 @@ export default class GamesService {
     }
 
     async removeReplay(gameId) {
-        fetch('/restservices/snake/deleteGame/ ', {
+        fetch('/restservices/snake/deleteGame/', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
