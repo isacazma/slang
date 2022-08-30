@@ -32,12 +32,13 @@ public class BattlesnakeResource {
     @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public javax.ws.rs.core.Response update(@FormParam("color") String color, @FormParam("head") String head, @FormParam("tail") String tail){
-        GameInformation updateSnake = new GameInformation("Alucard", color, head, tail);
+        String author = "Alucard";
+        GameInformation updateSnake = new GameInformation(author, color, head, tail);
         if (dao.update(updateSnake)){
             return javax.ws.rs.core.Response.ok("Je hebt de snake geupdate.").build();
         }
 System.out.println("kk hoer");
-        return null;
+        return javax.ws.rs.core.Response.ok().build();
     }
 
 //    @GET
