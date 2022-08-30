@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import java.util.Map;
 
 
 //class MoveResponse{
@@ -31,15 +32,33 @@ import javax.ws.rs.Path;
 
 @Path("/snake")
 public class BattlesnakeResource {
+    private GameInformation dao = GameInformation.getInstance();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getGameInfo() {
-        GameInformation info = new GameInformation();
-        info.setAuthor("dit");
-
-        return Response.ok(info).build();
+    public Map<String, Object> getSnake(){
+        return dao.listAll();
     }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public javax.ws.rs.core.Response update(@FormParam("color") String color, @FormParam("head") String head, @FormParam("tail") String tail){
+        GameInformation updateSnake = new GameInformation("Alucard", color, head, tail);
+        if (dao.update(updateSnake)){
+            return javax.ws.rs.core.Response.ok("Je hebt de snake geupdate.").build();
+        }
+
+        return javax.ws.rs.core.Response.ok().build();
+    }
+
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getGameInfo() {
+//        GameInformation info = new GameInformation();
+//        info.setAuthor("dit");
+//
+//        return Response.ok(info).build();
+//    }
 
 
     @POST
