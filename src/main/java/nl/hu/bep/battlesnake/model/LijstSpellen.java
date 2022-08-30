@@ -15,5 +15,6 @@ public class LijstSpellen {
     public static List<Game> alleSpellen = new ArrayList<Game>();
 
     public static void addGame(Game spel){
-        alleSpellen.add(spel.setIdea(" dit was spel "+alleSpellen.size()));
+        spel.setIdea(" dit was spel "+alleSpellen.size());
+        alleSpellen.add(spel.getId());
 }}
