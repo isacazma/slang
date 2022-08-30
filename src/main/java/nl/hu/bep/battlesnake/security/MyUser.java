@@ -9,7 +9,7 @@ public class MyUser implements Principal {
 
     static {
         allUsers = new ArrayList<>();
-        allUsers.add(new MyUser("John", "London", "admin"));
+        allUsers.add(new MyUser("a", "a", "admin"));
     }
 
     private String name;
