@@ -37,7 +37,7 @@ public class BattlesnakeResource {
             return javax.ws.rs.core.Response.ok("Je hebt de snake geupdate.").build();
         }
 System.out.println("kk hoer");
-        return javax.ws.rs.core.Response.status(342).build();
+        return null;
     }
 
 //    @GET
