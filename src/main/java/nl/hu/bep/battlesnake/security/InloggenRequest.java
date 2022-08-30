@@ -1,6 +1,6 @@
 package nl.hu.bep.battlesnake.security;
 
-public class LogonRequest {
+public class InloggenRequest {
     public String username, password;
 
     public String getUsername() {

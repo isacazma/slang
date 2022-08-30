@@ -9,6 +9,7 @@ public class LijstSpellen {
 
 
     public static List<Game> getAlleSpellen() {
+
         return alleSpellen;
     }
 
