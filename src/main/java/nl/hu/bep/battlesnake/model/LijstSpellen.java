@@ -14,6 +14,6 @@ public class LijstSpellen {
 
     public static ArrayList<Spel> alleSpellen = new ArrayList<Spel>();
 
-    public void addGame(Spel spel){
+    public static void addGame(Spel spel){
         alleSpellen.add(spel.setSamenvatng(" dit was spel "+alleSpellen.size()));
 }}

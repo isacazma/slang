@@ -51,7 +51,7 @@ public class BattlesnakeResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public javax.ws.rs.core.Response start() throws SQLException {
         Spel da = new Spel("tada");
-        alleSpellen.add(da);
+        LijstSpellen.addGame(da);
         return javax.ws.rs.core.Response.ok("Start").build();
     }
 
