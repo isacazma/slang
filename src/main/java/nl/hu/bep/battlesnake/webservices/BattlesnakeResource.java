@@ -1,6 +1,7 @@
 package nl.hu.bep.battlesnake.webservices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import nl.hu.bep.battlesnake.dao.BattlesnakeDAO;
 import nl.hu.bep.battlesnake.model.*;
 import nl.hu.bep.battlesnake.movement.DataParser;
 import nl.hu.bep.battlesnake.movement.Move;
@@ -13,6 +14,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +33,7 @@ import java.util.Map;
 
 @Path("/snake")
 public class BattlesnakeResource {
-    private GameInformation dao = GameInformation.getInstance();
+    private BattlesnakeDAO dao = BattlesnakeDAO.getInstance();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -128,10 +130,30 @@ System.out.println("kk hoer");
         return javax.ws.rs.core.Response.ok("Game is deleted.").build();
     }
 
+
     @POST
     @Path("/end")
     @Consumes(MediaType.APPLICATION_JSON)
-   public Response endGame(){
-        return Response.ok().build();
+    public Object handleEnd(Map<String, Object> requestBody) throws SQLException {
+        Game game = new Game();
+        String getID = "";
+
+        Map<String, Object> mapGame = (Map<String, Object>) requestBody.get("game");
+        for (String key : mapGame.keySet()) {
+            if (key == "id"){
+                getID = mapGame.get("id").toString();
+            }
+        }
+
+        Map<String, Object> mapYou = (Map<String, Object>) requestBody.get("you");
+        for (String key : mapYou.keySet()) {
+            if (key == "length") {
+                game.setDBData(getID, requestBody.get("turn").toString(), mapYou.get("length").toString());
+            }
+
+        }
+
+        Map<String, Object> responseObject = new HashMap<String, Object>();
+        return responseObject;
     }
 }
