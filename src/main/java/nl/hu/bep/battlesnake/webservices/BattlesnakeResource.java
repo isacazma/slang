@@ -14,6 +14,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -21,6 +22,7 @@ import java.util.Map;
 public class BattlesnakeResource {
 
     private BattlesnakeIk dao = BattlesnakeIk.getInstance();
+
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -84,13 +86,13 @@ public class BattlesnakeResource {
         return  Response.serverError().build();
     }
 
-//    @GET
-//    @Path("/games")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public List<Integer> games(){
-//        Game game = new Game();
-//        return game.getDbData();
-//    }
+    @GET
+    @Path("/games")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Integer> games(){
+        Game game = new Game();
+        return game.getDbData();
+    }
 //
 //    @GET
 //    @Path("/games/{id}")
