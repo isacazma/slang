@@ -18,7 +18,8 @@ function refresh() {
 document.forms.login.addEventListener('submit', e => {
     e.preventDefault();
     service.login(document.forms.login.username.value, document.forms.login.password.value).then(() => {
-        window.location.reload();
+        window.print();
+        //je kut hier
     })
 
 });
