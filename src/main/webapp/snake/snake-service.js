@@ -33,7 +33,7 @@ export default class SnakeService {
         }
         formBody = formBody.join("&");
 
-        fetch('/restservices/snake"', {
+        fetch('/restservices/snake', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
