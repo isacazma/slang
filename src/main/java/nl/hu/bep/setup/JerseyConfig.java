@@ -8,7 +8,7 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("restservices")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-        register(RolesAllowedDynamicFeature.class);
         packages("nl.hu.bep.battlesnake.webservices","nl.hu.bep.battlesnake.security");
+        register(RolesAllowedDynamicFeature.class);
     }
 }

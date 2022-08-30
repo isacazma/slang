@@ -41,14 +41,6 @@ System.out.println("kk hoer");
         return javax.ws.rs.core.Response.ok().build();
     }
 
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getGameInfo() {
-//        GameInformation info = new GameInformation();
-//        info.setAuthor("dit");
-//
-//        return Response.ok(info).build();
-//    }
 
 
     @POST
