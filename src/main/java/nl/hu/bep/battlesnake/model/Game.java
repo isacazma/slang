@@ -36,7 +36,7 @@ public class Game {
 
     public Game() { }
 
-    public Game getId() {
+    public String getId() {
         return id;
     }
 
