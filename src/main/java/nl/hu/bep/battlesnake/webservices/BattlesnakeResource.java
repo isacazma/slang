@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static nl.hu.bep.battlesnake.model.LijstSpellen.alleSpellen;
+import static nl.hu.bep.battlesnake.model.LijstSpellen.getAlleSpellen;
 
 
 @Path("/snake")
@@ -95,7 +96,7 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Game> games(){
 //        Game game = new Game();
-        return alleSpellen;
+        return (ArrayList<Game>) getAlleSpellen();
     }
 //
 //    @GET
