@@ -14,8 +14,10 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
+
+import static nl.hu.bep.battlesnake.model.LijstSpellen.alleSpellen;
 
 
 @Path("/snake")
@@ -48,6 +50,8 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public javax.ws.rs.core.Response start() throws SQLException {
+        Spel da = new Spel("tada");
+        alleSpellen.add(da);
         return javax.ws.rs.core.Response.ok("Start").build();
     }
 
@@ -89,9 +93,9 @@ public class BattlesnakeResource {
     @GET
     @Path("/games")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Integer> games(){
-        Game game = new Game();
-        return game.getDbData();
+    public ArrayList<Spel> games(){
+//        Game game = new Game();
+        return alleSpellen;
     }
 //
 //    @GET
