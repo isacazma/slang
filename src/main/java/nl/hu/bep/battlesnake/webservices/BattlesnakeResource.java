@@ -94,13 +94,10 @@ public class BattlesnakeResource {
     @GET
     @Path("/games")
     @Produces(MediaType.APPLICATION_JSON)
-    public Object games(){
+    public ArrayList<Game> games(){
 //        Game game = new Game();
-        for (Game game : alleSpellen) {
-            return game.getId();
 
-    }
-        return null;
+        return (ArrayList<Game>) getAlleSpellen();
     }
 //
 //    @GET
