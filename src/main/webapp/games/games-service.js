@@ -1,6 +1,6 @@
 export default class GamesService {
     async getGameIds() {
-        return fetch('/restservices/snake/games')
+        return fetch('/restservices/snake/games/')
             .then((response) => response.json())
             .then((data) => data);
     }

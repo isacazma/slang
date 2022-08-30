@@ -21,6 +21,7 @@ import java.util.Map;
 
 @Path("/snake")
 public class BattlesnakeResource {
+
     private BattlesnakeDAO dao = BattlesnakeDAO.getInstance();
 
     @GET
