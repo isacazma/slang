@@ -50,7 +50,7 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public javax.ws.rs.core.Response start() throws SQLException {
-        Spel da = new Spel("tada");
+        Game da = new Game();
         LijstSpellen.addGame(da);
         return javax.ws.rs.core.Response.ok("Start").build();
     }
@@ -93,7 +93,7 @@ public class BattlesnakeResource {
     @GET
     @Path("/games")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Spel> games(){
+    public ArrayList<Game> games(){
 //        Game game = new Game();
         return alleSpellen;
     }

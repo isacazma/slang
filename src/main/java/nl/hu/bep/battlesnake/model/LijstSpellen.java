@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class LijstSpellen {
 
-    public static ArrayList<Spel> getAlleSpellen() {
+    public static ArrayList<Game> getAlleSpellen() {
         return alleSpellen;
     }
 
-    public static void setAlleSpellen(ArrayList<Spel> alleSpellen) {
+    public static void setAlleSpellen(ArrayList<Game> alleSpellen) {
         LijstSpellen.alleSpellen = alleSpellen;
     }
 
-    public static ArrayList<Spel> alleSpellen = new ArrayList<Spel>();
+    public static ArrayList<Game> alleSpellen = new ArrayList<Game>();
 
-    public static void addGame(Spel spel){
-        alleSpellen.add(spel.setSamenvatng(" dit was spel "+alleSpellen.size()));
+    public static void addGame(Game spel){
+        alleSpellen.add(spel.setIdea(" dit was spel "+alleSpellen.size()));
 }}

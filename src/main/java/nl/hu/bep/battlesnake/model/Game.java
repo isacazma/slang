@@ -28,6 +28,12 @@ public class Game {
         this.source = js.get("source").textValue();
     }
 
+   public Game setIdea (String id){
+       this.id = id;
+
+       return null;
+   }
+
     public Game() { }
 
     public String getId() {
