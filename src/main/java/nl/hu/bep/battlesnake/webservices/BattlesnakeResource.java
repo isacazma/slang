@@ -1,7 +1,7 @@
 package nl.hu.bep.battlesnake.webservices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import nl.hu.bep.battlesnake.dao.BattlesnakeDAO;
+import nl.hu.bep.battlesnake.mijnSlang.BattlesnakeIk;
 import nl.hu.bep.battlesnake.model.*;
 import nl.hu.bep.battlesnake.movement.DataParser;
 import nl.hu.bep.battlesnake.movement.Move;
@@ -14,15 +14,13 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
 @Path("/snake")
 public class BattlesnakeResource {
 
-    private BattlesnakeDAO dao = BattlesnakeDAO.getInstance();
+    private BattlesnakeIk dao = BattlesnakeIk.getInstance();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -33,12 +31,12 @@ public class BattlesnakeResource {
     @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public javax.ws.rs.core.Response update(@FormParam("color") String color, @FormParam("head") String head, @FormParam("tail") String tail){
-        String author = "Alucard";
-        GameInformation updateSnake = new GameInformation(author, color, head, tail);
+//        String author = "Alucard";
+        GameInformation updateSnake = new GameInformation("Alucard", color, head, tail);
         if (dao.update(updateSnake)){
             return javax.ws.rs.core.Response.ok("Je hebt de snake geupdate.").build();
         }
-System.out.println("kk hoer");
+
         return javax.ws.rs.core.Response.ok().build();
     }
 

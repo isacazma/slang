@@ -50,14 +50,6 @@ public class Snake {
             int y = node.get("y").intValue();
             body.add(new Point(x,y));
         }
-//        this.health = health;
-//        this.head = head;
-//        this.length = length;
-//        this.shout = shout;
-//        this.squad = squad;
-//        this.customizations_color = customizations_color;
-//        this.customizations_head = customizations_head;
-//        this.customizations_tail = customizations_tail;
     }
 
     public int getHealth() {

@@ -1,4 +1,4 @@
-package nl.hu.bep.battlesnake.dao;
+package nl.hu.bep.battlesnake.mijnSlang;
 
 
 
@@ -7,8 +7,8 @@ import nl.hu.bep.battlesnake.model.GameInformation;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BattlesnakeDAO {
-    private static BattlesnakeDAO instance;
+public class BattlesnakeIk {
+    private static BattlesnakeIk instance;
     private static Map<String, Object> res = new HashMap<>();
     private static GameInformation snake = new GameInformation("1", "Alucard", "#26CF04",
             "smile", "bolt");
@@ -21,11 +21,11 @@ public class BattlesnakeDAO {
         res.put("tail", snake.getTail());
     }
 
-    private BattlesnakeDAO(){}
+    private BattlesnakeIk(){}
 
-    public static BattlesnakeDAO getInstance(){
+    public static BattlesnakeIk getInstance(){
         if (instance == null) {
-            instance = new BattlesnakeDAO();
+            instance = new BattlesnakeIk();
         }
         return instance;
     }
